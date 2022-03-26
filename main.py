@@ -76,13 +76,9 @@ while True:
     print('voltage:{}, temperature:{}, pressure:{}, light:{}, humidity:{}, roll:{}, pitch:{}'.format(voltage, temperature, pressure, light, humidity, roll, pitch))
     # Convert to byte array for transmission
     lpp.add_temperature (temperature, channel = 1) # Temperature in celcius
-    lpp.add_luminosity(pressure, channel = 2) # Atmospheric pressure in bar
-    lpp.add_relative_humidity(humidity, channel = 3)
-    lpp.add_barometric_pressure(pressure, channel = 4)
-    lpp.add_gps(45.5162964094099, -73.52056427568702, 2, channel = 5)
-    lpp.add_analog_input(voltage, channel = 6)
+    lpp.add_relative_humidity(humidity, channel = 2)
     lpp.send(reset_payload = True)
-    print("Bytes sent, sleeping for X secs")
+    print("Bytes sent, sleeping for 10 secs")
     time.sleep(10)
     # make the socket non-blocking
     # (because if there's no data received it will block forever...)
